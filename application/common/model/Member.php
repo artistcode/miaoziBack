@@ -95,7 +95,6 @@ class Member extends Model
             if (!Cache::get($param['username']))  throw new  Exception(['code'=>200,'msg'=>'请先发送验证码','code'=>20000]);
             if (Cache::get($param['username']) !=$param['code'])  throw new  Exception(['code'=>200,'msg'=>'验证码错误','code'=>20000]);
              /* 验证成功*/
-
             $user =  $this->create(
                  [
                      'phone'=>$param['username'],

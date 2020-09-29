@@ -1,7 +1,5 @@
 <?php
-
 namespace app\api\controller\v1;
-
 use think\App;
 use think\Controller;
 use think\Request;

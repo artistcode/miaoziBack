@@ -1,0 +1,9 @@
+
+POST  http://www.dsrcz.com/api/v1/login HTTP/1.1
+content-type: application/json
+ 
+{
+    "name":"Hendry",
+    "salary":"61888",
+    "age":"216"
+}

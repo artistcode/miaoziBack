@@ -8,6 +8,16 @@ use  app\lib\exception\BaseException as Exception;
 class Member extends Model
 {
     public function Login(){
+        $param  = request()->param();
+        $post_user = [
+         'phone'=>$param['phone'],
+         'password'=>$param['password']
+        ];
+        $user = $this->where($post_user)->find();
+        if(!$user) throw new Exception([ 'msg'=>'用户名或密码错误' 'code'=>'99999' ]);
+
+       return $this->createToken();
+
 
     }
     public function createToken(){
@@ -17,10 +27,8 @@ class Member extends Model
     }
     public function checkToken($token)
     {
-
         $res = $this->field('time_out')->where('token', $token)->find();
         if (!empty($res)) {
-
             if (time() - $res['time_out'] > 0) {
                 return 90003; //token长时间未使用而过期，需重新登陆
             }

@@ -15,7 +15,7 @@ class Base extends Controller
             'data'=>$data,
             'code'=>$code
         ];
-        return json($res,$code);
+        return json($res,200);
     }
 
     // api统一返回格式无数据
